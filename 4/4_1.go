@@ -51,9 +51,7 @@ func main() {
 	go func() {
 		defer close(channel)
 
-		counter := 0
-
-		for {
+		for counter := 0; ; counter++ {
 			select {
 			case <-ctx.Done():
 				return
