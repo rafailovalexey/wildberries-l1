@@ -10,18 +10,28 @@ import (
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	go worker(ctx)
 
-	exit := make(chan os.Signal)
-	signal.Notify(exit, syscall.SIGINT)
-	<-exit
+	go func() {
+		exit := make(chan os.Signal)
+		signal.Notify(exit, syscall.SIGINT)
 
-	fmt.Println("CTRL+C received. Stopping subscribers...")
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-exit:
+				fmt.Println("CTRL+C received. Stopping subscribers...")
 
-	cancel()
+				cancel()
+			}
+		}
+	}()
+
+	<-ctx.Done()
 
 	fmt.Println("Program has been stopped")
 }

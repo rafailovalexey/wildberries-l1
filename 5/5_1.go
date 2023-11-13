@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
-	"sync"
 	"syscall"
 	"time"
 )
@@ -22,13 +21,8 @@ func main() {
 	defer cancel()
 
 	channel := make(chan string)
-	wg := &sync.WaitGroup{}
-
-	wg.Add(1)
 
 	go func() {
-		defer wg.Done()
-
 		fmt.Println("Subscriber: Start")
 
 		for {
@@ -40,6 +34,8 @@ func main() {
 			case message, isOpen := <-channel:
 				if !isOpen {
 					fmt.Println("Subscriber: Channel closed")
+
+					return
 				}
 
 				fmt.Printf("Subscriber: %s\n", message)
@@ -67,15 +63,20 @@ func main() {
 	go func() {
 		exit := make(chan os.Signal)
 		signal.Notify(exit, syscall.SIGINT)
-		<-exit
 
-		fmt.Println("CTRL+C received. Stopping subscribers...")
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-exit:
+				fmt.Println("CTRL+C received. Stopping subscribers...")
 
-		cancel()
-		wg.Wait()
-
-		fmt.Println("Program has been stopped")
+				cancel()
+			}
+		}
 	}()
 
-	wg.Wait()
+	<-ctx.Done()
+
+	fmt.Println("Program has been stopped")
 }
