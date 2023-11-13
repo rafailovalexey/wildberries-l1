@@ -1,4 +1,4 @@
-package main
+package wildberries_l1
 
 //func main() {
 //	array := make([]int, 0, 10)
