@@ -9,19 +9,35 @@ import (
 	"time"
 )
 
+/*
+	№ 6 (1 решение)
+
+	Реализовать все возможные способы остановки выполнения горутины.
+*/
+
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
 	go worker(ctx)
 
-	exit := make(chan os.Signal)
-	signal.Notify(exit, syscall.SIGINT)
-	<-exit
+	go func() {
+		exit := make(chan os.Signal)
+		signal.Notify(exit, syscall.SIGINT)
 
-	fmt.Println("CTRL+C received. Stopping subscribers...")
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-exit:
+				fmt.Println("CTRL+C received. Stopping subscribers...")
 
-	cancel()
+				cancel()
+			}
+		}
+	}()
+
+	<-ctx.Done()
 
 	fmt.Println("Program has been stopped")
 }

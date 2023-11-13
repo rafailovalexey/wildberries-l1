@@ -10,13 +10,13 @@ import (
 )
 
 /*
-	№ 6 (2 решение)
+	№ 6 (3 решение)
 
 	Реализовать все возможные способы остановки выполнения горутины.
 */
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(5*time.Second))
 	defer cancel()
 
 	go worker(ctx)
