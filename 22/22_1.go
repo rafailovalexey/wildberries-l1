@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	value1 := new(big.Int).Exp(big.NewInt(2), big.NewInt(32), nil)
+	value1 := new(big.Int).Exp(big.NewInt(2), big.NewInt(64), nil)
 	value2 := new(big.Int).Exp(big.NewInt(2), big.NewInt(32), nil)
 
 	m := multiply(value1, value2)
