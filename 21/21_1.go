@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+/*
+	№ 21 (1-ое решение)
+
+	Реализовать паттерн «адаптер» на любом примере.
+*/
+
 type FiguresInterface interface {
 	GetPerimeter() int
 	GetArea() int

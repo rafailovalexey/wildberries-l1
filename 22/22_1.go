@@ -5,6 +5,12 @@ import (
 	"math/big"
 )
 
+/*
+	№ 22 (1-ое решение)
+
+	Разработать программу, которая перемножает, делит, складывает, вычитает две числовых переменных a,b, значение которых > 2^20.
+*/
+
 func main() {
 	value1 := new(big.Int).Exp(big.NewInt(2), big.NewInt(64), nil)
 	value2 := new(big.Int).Exp(big.NewInt(2), big.NewInt(32), nil)
