@@ -6,7 +6,7 @@ import (
 )
 
 /*
-	№ 18 (1 решение)
+	№ 18 (3 решение)
 
 	Реализовать структуру-счетчик, которая будет инкрементироваться в конкурентной среде.
 	По завершению программа должна выводить итоговое значение счетчика.
@@ -14,7 +14,7 @@ import (
 
 func main() {
 	wg := &sync.WaitGroup{}
-	mu := &sync.Mutex{}
+	channelAsMutex := make(chan struct{}, 1)
 
 	counter := 0
 
@@ -24,10 +24,11 @@ func main() {
 		go func() {
 			defer wg.Done()
 
-			mu.Lock()
-			defer mu.Unlock()
+			channelAsMutex <- struct{}{}
 
 			counter++
+
+			_ = <-channelAsMutex
 		}()
 	}
 

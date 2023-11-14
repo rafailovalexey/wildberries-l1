@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
 
 /*
-	№ 18 (1 решение)
+	№ 18 (2 решение)
 
 	Реализовать структуру-счетчик, которая будет инкрементироваться в конкурентной среде.
 	По завершению программа должна выводить итоговое значение счетчика.
@@ -14,9 +15,8 @@ import (
 
 func main() {
 	wg := &sync.WaitGroup{}
-	mu := &sync.Mutex{}
 
-	counter := 0
+	counter := int64(0)
 
 	for index := 0; index < 1000; index++ {
 		wg.Add(1)
@@ -24,10 +24,7 @@ func main() {
 		go func() {
 			defer wg.Done()
 
-			mu.Lock()
-			defer mu.Unlock()
-
-			counter++
+			atomic.AddInt64(&counter, 1)
 		}()
 	}
 
