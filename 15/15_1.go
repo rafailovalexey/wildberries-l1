@@ -21,15 +21,18 @@ import (
 	}
 */
 
+/*
+	Garbage collector может очистить память переменной v после выхода из функции someFunc.
+	justString ссылается на 100 первых элементов строки v, строки реализованы через slice,
+	соответственно изменение массива или затирание его в памяти приведёт к неправильному/непредсказуемому значению в переменной justString
+*/
+
 var justString string
 
 func someFunc() {
 	v := createHugeString(1 << 10)
 
-	justString = v[:100]
-
-	fmt.Println(len(v))
-	fmt.Println(len(justString))
+	justString = strings.Clone(v[:100])
 }
 
 func createHugeString(size int) string {
@@ -38,4 +41,6 @@ func createHugeString(size int) string {
 
 func main() {
 	someFunc()
+
+	fmt.Println(justString)
 }
