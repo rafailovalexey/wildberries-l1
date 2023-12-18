@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -45,7 +46,7 @@ func main() {
 
 		log.Printf("subscriber-%d: started\n", index)
 
-		go RunSubscriber(ctx, index, wg, channel)
+		go Subscriber(ctx, index, wg, channel)
 	}
 
 	go func() {
@@ -56,7 +57,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			default:
-				message := log.Sprintf("publisher-1: %d\n", counter)
+				message := fmt.Sprintf("publisher-1: %d", counter)
 
 				channel <- message
 
@@ -69,7 +70,7 @@ func main() {
 	signal.Notify(exit, syscall.SIGINT)
 	<-exit
 
-	log.Printf("ctrl+c received. Stopping subscribers...\n")
+	log.Printf("ctrl+c received. stopping subscribers...\n")
 
 	cancel()
 	wg.Wait()
@@ -77,7 +78,7 @@ func main() {
 	log.Printf("program has been stopped\n")
 }
 
-func RunSubscriber(ctx context.Context, index int, wg *sync.WaitGroup, channel <-chan string) {
+func Subscriber(ctx context.Context, index int, wg *sync.WaitGroup, channel <-chan string) {
 	defer wg.Done()
 
 	log.Printf("subscriber-%d: started\n", index)

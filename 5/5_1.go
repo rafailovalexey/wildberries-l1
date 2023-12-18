@@ -18,7 +18,7 @@ import (
 */
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	channel := make(chan string)
@@ -65,15 +65,13 @@ func main() {
 		exit := make(chan os.Signal)
 		signal.Notify(exit, syscall.SIGINT)
 
-		for {
-			select {
-			case <-ctx.Done():
-				return
-			case <-exit:
-				log.Printf("ctrl+c received. Stopping subscribers...\n")
+		select {
+		case <-ctx.Done():
+			return
+		case <-exit:
+			log.Printf("ctrl+c received. stopping subscribers...\n")
 
-				cancel()
-			}
+			cancel()
 		}
 	}()
 
