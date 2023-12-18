@@ -17,8 +17,8 @@ func main() {
 	var boolean any = true
 	var channel any = make(chan string)
 
-	fmt.Println(reflect.TypeOf(integer))
-	fmt.Println(reflect.TypeOf(str))
-	fmt.Println(reflect.TypeOf(boolean))
-	fmt.Println(reflect.TypeOf(channel))
+	fmt.Printf("%s\n", reflect.TypeOf(integer))
+	fmt.Printf("%s\n", reflect.TypeOf(str))
+	fmt.Printf("%s\n", reflect.TypeOf(boolean))
+	fmt.Printf("%s\n", reflect.TypeOf(channel))
 }

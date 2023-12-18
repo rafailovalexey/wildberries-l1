@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 )
 
 /*
@@ -12,21 +11,19 @@ import (
 */
 
 func PrintTypeOf(value any) {
-	typeof := reflect.TypeOf(value)
-
 	switch value.(type) {
 	case int:
-		fmt.Println(typeof)
+		fmt.Printf("int\n")
 	case string:
-		fmt.Println(typeof)
+		fmt.Printf("string\n")
 	case bool:
-		fmt.Println(typeof)
+		fmt.Printf("bool\n")
 	case chan int:
-		fmt.Println(typeof)
+		fmt.Printf("chan int\n")
 	case chan string:
-		fmt.Println(typeof)
+		fmt.Printf("chan string\n")
 	default:
-		fmt.Println("Не удалось определить конкретный тип.")
+		fmt.Printf("could not determine specific type")
 	}
 }
 

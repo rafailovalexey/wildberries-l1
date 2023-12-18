@@ -14,12 +14,12 @@ import (
 func main() {
 	seconds := 5
 
-	fmt.Println("Program started")
-	fmt.Printf("Waiting %d seconds\n", seconds)
+	fmt.Printf("program started\n")
+	fmt.Printf("waiting %d seconds\n", seconds)
 
 	sleep(seconds)
 
-	fmt.Println("Program terminated")
+	fmt.Printf("program terminated\n")
 }
 
 func sleep(seconds int) {

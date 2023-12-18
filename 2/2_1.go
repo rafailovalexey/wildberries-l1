@@ -25,7 +25,7 @@ func main() {
 
 			square := int(math.Pow(float64(number), 2))
 
-			fmt.Printf("Квадрат числа %d: %d\n", number, int(square))
+			fmt.Printf("square of the number %d: %d\n", number, square)
 		}(number)
 	}
 

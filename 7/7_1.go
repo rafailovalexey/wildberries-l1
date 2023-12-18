@@ -32,5 +32,5 @@ func main() {
 
 	wg.Wait()
 
-	fmt.Println(dictionary)
+	fmt.Printf("%v\n", dictionary)
 }

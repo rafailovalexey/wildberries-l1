@@ -60,10 +60,10 @@ func NewRectangleAdapter(width int, height int) *RectangleAdapter {
 
 func main() {
 	square := NewSquareAdapter(5)
-	fmt.Println("Square Perimeter:", square.GetPerimeter())
-	fmt.Println("Square Area:", square.GetArea())
+	fmt.Printf("square perimeter %d\n", square.GetPerimeter())
+	fmt.Printf("square area %d\n", square.GetArea())
 
 	rectangle := NewRectangleAdapter(10, 5)
-	fmt.Println("Rectangle Perimeter:", rectangle.GetPerimeter())
-	fmt.Println("Rectangle Area:", rectangle.GetArea())
+	fmt.Printf("rectangle perimeter %d\n", rectangle.GetPerimeter())
+	fmt.Printf("rectangle area %d\n", rectangle.GetArea())
 }

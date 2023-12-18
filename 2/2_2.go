@@ -16,16 +16,16 @@ func main() {
 	channel := make(chan string)
 
 	go func() {
+		defer close(channel)
+
 		for _, number := range numbers {
 			square := int(math.Pow(float64(number), 2))
 
-			channel <- fmt.Sprintf("Квадрат числа %d: %d\n", number, int(square))
+			channel <- fmt.Sprintf("square of the number %d: %d\n", number, square)
 		}
-
-		close(channel)
 	}()
 
 	for value := range channel {
-		fmt.Print(value)
+		fmt.Printf("%s\n", value)
 	}
 }

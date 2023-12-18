@@ -23,22 +23,22 @@ func main() {
 	channel := make(chan string)
 
 	go func() {
-		fmt.Println("Subscriber: Start")
+		fmt.Printf("subscriber: start\n")
 
 		for {
 			select {
 			case <-ctx.Done():
-				fmt.Println("Subscriber: Stopped")
+				fmt.Printf("subscriber: stopped\n")
 
 				return
 			case message, isOpen := <-channel:
 				if !isOpen {
-					fmt.Println("Subscriber: Channel closed")
+					fmt.Printf("subscriber: channel closed\n")
 
 					return
 				}
 
-				fmt.Printf("Subscriber: %s\n", message)
+				fmt.Printf("subscriber: %s\n", message)
 			}
 		}
 	}()
@@ -49,7 +49,7 @@ func main() {
 		for counter := 0; ; counter++ {
 			select {
 			case <-ctx.Done():
-				fmt.Println("Publisher: Stopped")
+				fmt.Printf("publisher: stopped\n")
 
 				return
 			default:
@@ -69,7 +69,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			case <-exit:
-				fmt.Println("CTRL+C received. Stopping subscribers...")
+				fmt.Printf("CTRL+C received. Stopping subscribers...\n")
 
 				cancel()
 			}
@@ -78,5 +78,5 @@ func main() {
 
 	<-ctx.Done()
 
-	fmt.Println("Program has been stopped")
+	fmt.Printf("program has been stopped\n")
 }

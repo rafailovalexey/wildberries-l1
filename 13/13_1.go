@@ -14,6 +14,6 @@ func main() {
 
 	a, b = b, a
 
-	fmt.Println(a)
-	fmt.Println(b)
+	fmt.Printf("%d\n", a)
+	fmt.Printf("%d\n", b)
 }

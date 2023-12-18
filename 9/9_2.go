@@ -17,13 +17,12 @@ func main() {
 
 	go func() {
 		for result := range results {
-			fmt.Println(result)
+			fmt.Printf("%d\n", result)
 		}
 	}()
 
 	go func() {
 		for _ = range numbers {
-
 		}
 	}()
 
@@ -32,6 +31,6 @@ func main() {
 		results <- value * 2
 	}
 
-	close(numbers)
-	close(results)
+	defer close(numbers)
+	defer close(results)
 }

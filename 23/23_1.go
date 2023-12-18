@@ -13,7 +13,7 @@ func main() {
 
 	array = DeleteArrayByIndex(array, 5)
 
-	fmt.Println(array, len(array), cap(array))
+	fmt.Printf("%v %d %d\n", array, len(array), cap(array))
 }
 
 func DeleteArrayByIndex(array []int, index int) []int {

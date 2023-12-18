@@ -17,7 +17,7 @@ func main() {
 
 	result := intersection(array1, array2)
 
-	fmt.Println("Пересечение множеств в отсортированных массивах:", result)
+	fmt.Printf("set intersection in sorted arrays %v\n", result)
 }
 
 func intersection(array1 []int, array2 []int) []int {

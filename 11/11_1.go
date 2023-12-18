@@ -14,7 +14,7 @@ func main() {
 
 	result := intersection(map1, map2)
 
-	fmt.Println("Пересечение множеств:", result)
+	fmt.Printf("intersection of many %v\n", result)
 }
 
 func intersection(map1 map[any]any, map2 map[any]any) map[any]any {

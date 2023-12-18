@@ -20,7 +20,7 @@ func main() {
 	sort.Float64s(floats)
 	sort.Strings(strs)
 
-	fmt.Println("Отсортированный массив чисел:", integers)
-	fmt.Println("Отсортированный массив чисел с плавающей запятой:", floats)
-	fmt.Println("Отсортированный массив строк:", strs)
+	fmt.Printf("sorted array of numbers %v\n", integers)
+	fmt.Printf("sorted array of floating point numbers %v\n", floats)
+	fmt.Printf("sorted array of strings %v\n", strs)
 }

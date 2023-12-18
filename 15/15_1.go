@@ -42,5 +42,5 @@ func createHugeString(size int) string {
 func main() {
 	someFunc()
 
-	fmt.Println(justString)
+	fmt.Printf("%s\n", justString)
 }

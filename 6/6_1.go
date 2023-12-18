@@ -30,7 +30,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			case <-exit:
-				fmt.Println("CTRL+C received. Stopping subscribers...")
+				fmt.Printf("CTRL+C received. Stopping subscribers...\n")
 
 				cancel()
 			}
@@ -39,19 +39,19 @@ func main() {
 
 	<-ctx.Done()
 
-	fmt.Println("Program has been stopped")
+	fmt.Printf("program has been stopped\n")
 }
 
 func worker(ctx context.Context) {
-	fmt.Println("Worker: Start")
+	fmt.Printf("worker: start\n")
 
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Println("Worker: Stopped")
+			fmt.Printf("worker: stopped\n")
 			return
 		default:
-			fmt.Println("Worker: Running")
+			fmt.Printf("worker: running\n")
 			time.Sleep(1 * time.Second)
 		}
 	}

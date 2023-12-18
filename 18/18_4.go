@@ -24,7 +24,9 @@ func main() {
 		channel <- value + 1
 	}
 
+	close(channel)
+
 	result := <-channel
 
-	fmt.Println(result)
+	fmt.Printf("%d\n", result)
 }

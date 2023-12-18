@@ -13,7 +13,7 @@ func main() {
 
 	result := intersaction(array)
 
-	fmt.Println("Пересечение множеств:", result)
+	fmt.Printf("intersection of many %v\n", result)
 }
 
 func intersaction(array []string) map[any]any {

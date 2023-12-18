@@ -21,7 +21,7 @@ func main() {
 
 	result := CheckCharExists(value)
 
-	fmt.Println(result)
+	fmt.Printf("%v\n", result)
 }
 
 func CheckCharExists(value string) bool {

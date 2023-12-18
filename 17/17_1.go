@@ -21,8 +21,8 @@ func main() {
 	})
 
 	if index < len(array) && array[index] == target {
-		fmt.Println(array[index])
+		fmt.Printf("%v\n", array[index])
 	} else {
-		fmt.Println("element not found")
+		fmt.Printf("element not found\n")
 	}
 }

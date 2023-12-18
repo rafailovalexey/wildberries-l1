@@ -43,7 +43,7 @@ func main() {
 	for index := 1; index <= workers; index++ {
 		wg.Add(1)
 
-		fmt.Printf("Subscriber-%d: Started", index)
+		fmt.Printf("subscriber-%d: started\n", index)
 
 		go RunSubscriber(ctx, index, wg, channel)
 	}
@@ -56,7 +56,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			default:
-				message := fmt.Sprintf("Publisher-1: %d\n", counter)
+				message := fmt.Sprintf("publisher-1: %d\n", counter)
 
 				channel <- message
 
@@ -69,33 +69,33 @@ func main() {
 	signal.Notify(exit, syscall.SIGINT)
 	<-exit
 
-	fmt.Println("CTRL+C received. Stopping subscribers...")
+	fmt.Printf("CTRL+C received. Stopping subscribers...\n")
 
 	cancel()
 	wg.Wait()
 
-	fmt.Println("Program has been stopped")
+	fmt.Printf("program has been stopped\n")
 }
 
 func RunSubscriber(ctx context.Context, index int, wg *sync.WaitGroup, channel <-chan string) {
 	defer wg.Done()
 
-	fmt.Printf("Subscriber-%d: Started\n", index)
+	fmt.Printf("subscriber-%d: started\n", index)
 
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Printf("Subscriber-%d: Stopped\n", index)
+			fmt.Printf("subscriber-%d: stopped\n", index)
 
 			return
 		case message, isOpen := <-channel:
 			if !isOpen {
-				fmt.Printf("Subscriber-%d: Channel closed\n", index)
+				fmt.Printf("subscriber-%d: channel closed\n", index)
 
 				return
 			}
 
-			fmt.Printf("Subscriber-%d: %s", index, message)
+			fmt.Printf("subscriber-%d: %s\n", index, message)
 		}
 	}
 }

@@ -20,19 +20,19 @@ func main() {
 	close(channel)
 	time.Sleep(3 * time.Second)
 
-	fmt.Println("Program has been stopped")
+	fmt.Printf("program has been stopped\n")
 }
 
 func worker(channel <-chan struct{}) {
-	fmt.Println("Worker: Start")
+	fmt.Printf("worker: start\n")
 
 	for {
 		select {
 		case <-channel:
-			fmt.Println("Worker: Stopped")
+			fmt.Printf("worker: stopped\n")
 			return
 		default:
-			fmt.Println("Worker: Running")
+			fmt.Printf("worker: running\n")
 			time.Sleep(1 * time.Second)
 		}
 	}

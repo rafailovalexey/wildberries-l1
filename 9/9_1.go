@@ -26,6 +26,6 @@ func main() {
 	}()
 
 	for result := range results {
-		fmt.Println(result)
+		fmt.Printf("%d\n", result)
 	}
 }

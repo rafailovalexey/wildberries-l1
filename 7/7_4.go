@@ -25,11 +25,12 @@ func main() {
 
 			channelAsMutex <- struct{}{}
 			dictionary[index] = struct{}{}
+
 			_ = <-channelAsMutex
 		}(index)
 	}
 
 	wg.Wait()
 
-	fmt.Println(dictionary)
+	fmt.Printf("%v\n", dictionary)
 }

@@ -34,5 +34,5 @@ func main() {
 
 	wg.Wait()
 
-	fmt.Println(counter)
+	fmt.Printf("%d\n", counter)
 }

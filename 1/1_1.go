@@ -34,7 +34,7 @@ func (h *Human) GetEmail() string {
 func main() {
 	human := &Human{
 		Name:  "Alexey",
-		Age:   20,
+		Age:   21,
 		Email: "literallymyfault@gmail.com",
 	}
 
@@ -42,13 +42,13 @@ func main() {
 		*human,
 	}
 
-	fmt.Println(action.GetName())
-	fmt.Println(action.GetAge())
-	fmt.Println(action.GetEmail())
+	fmt.Printf("%s\n", action.GetName())
+	fmt.Printf("%d\n", action.GetAge())
+	fmt.Printf("%s\n", action.GetEmail())
 
 	action2 := &Action{}
 
-	fmt.Println(action2.GetName())
-	fmt.Println(action2.GetAge())
-	fmt.Println(action2.GetEmail())
+	fmt.Printf("%s\n", action2.GetName())
+	fmt.Printf("%d\n", action2.GetAge())
+	fmt.Printf("%s\n", action2.GetEmail())
 }

@@ -21,5 +21,5 @@ func main() {
 		dictionary[group] = append(dictionary[group], value)
 	}
 
-	fmt.Println(dictionary)
+	fmt.Printf("%v\n", dictionary)
 }
