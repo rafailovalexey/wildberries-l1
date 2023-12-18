@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -21,8 +21,8 @@ func main() {
 	})
 
 	if index < len(array) && array[index] == target {
-		fmt.Printf("%v\n", array[index])
+		log.Printf("%v\n", array[index])
 	} else {
-		fmt.Printf("element not found\n")
+		log.Printf("element not found\n")
 	}
 }

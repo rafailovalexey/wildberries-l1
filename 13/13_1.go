@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 13 (1-ое решение)
@@ -14,6 +14,6 @@ func main() {
 
 	a, b = b, a
 
-	fmt.Printf("%d\n", a)
-	fmt.Printf("%d\n", b)
+	log.Printf("%d\n", a)
+	log.Printf("%d\n", b)
 }

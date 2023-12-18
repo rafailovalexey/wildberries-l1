@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 21 (1-ое решение)
@@ -60,10 +60,10 @@ func NewRectangleAdapter(width int, height int) *RectangleAdapter {
 
 func main() {
 	square := NewSquareAdapter(5)
-	fmt.Printf("square perimeter %d\n", square.GetPerimeter())
-	fmt.Printf("square area %d\n", square.GetArea())
+	log.Printf("square perimeter %d\n", square.GetPerimeter())
+	log.Printf("square area %d\n", square.GetArea())
 
 	rectangle := NewRectangleAdapter(10, 5)
-	fmt.Printf("rectangle perimeter %d\n", rectangle.GetPerimeter())
-	fmt.Printf("rectangle area %d\n", rectangle.GetArea())
+	log.Printf("rectangle perimeter %d\n", rectangle.GetPerimeter())
+	log.Printf("rectangle area %d\n", rectangle.GetArea())
 }

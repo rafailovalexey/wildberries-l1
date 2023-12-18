@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /*
 	№ 1 (1-ое решение)
@@ -42,13 +44,13 @@ func main() {
 		*human,
 	}
 
-	fmt.Printf("%s\n", action.GetName())
-	fmt.Printf("%d\n", action.GetAge())
-	fmt.Printf("%s\n", action.GetEmail())
+	log.Printf("%s\n", action.GetName())
+	log.Printf("%d\n", action.GetAge())
+	log.Printf("%s\n", action.GetEmail())
 
 	action2 := &Action{}
 
-	fmt.Printf("%s\n", action2.GetName())
-	fmt.Printf("%d\n", action2.GetAge())
-	fmt.Printf("%s\n", action2.GetEmail())
+	log.Printf("%s\n", action2.GetName())
+	log.Printf("%d\n", action2.GetAge())
+	log.Printf("%s\n", action2.GetEmail())
 }

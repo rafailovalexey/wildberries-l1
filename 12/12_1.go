@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 12 (1-ое решение)
@@ -13,7 +13,7 @@ func main() {
 
 	result := intersaction(array)
 
-	fmt.Printf("intersection of many %v\n", result)
+	log.Printf("intersection of many %v\n", result)
 }
 
 func intersaction(array []string) map[any]any {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -20,7 +20,7 @@ func main() {
 	sort.Float64s(floats)
 	sort.Strings(strs)
 
-	fmt.Printf("sorted array of numbers %v\n", integers)
-	fmt.Printf("sorted array of floating point numbers %v\n", floats)
-	fmt.Printf("sorted array of strings %v\n", strs)
+	log.Printf("sorted array of numbers %v\n", integers)
+	log.Printf("sorted array of floating point numbers %v\n", floats)
+	log.Printf("sorted array of strings %v\n", strs)
 }

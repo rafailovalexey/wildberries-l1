@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"reflect"
 )
 
@@ -17,8 +17,8 @@ func main() {
 	var boolean any = true
 	var channel any = make(chan string)
 
-	fmt.Printf("%s\n", reflect.TypeOf(integer))
-	fmt.Printf("%s\n", reflect.TypeOf(str))
-	fmt.Printf("%s\n", reflect.TypeOf(boolean))
-	fmt.Printf("%s\n", reflect.TypeOf(channel))
+	log.Printf("%s\n", reflect.TypeOf(integer))
+	log.Printf("%s\n", reflect.TypeOf(str))
+	log.Printf("%s\n", reflect.TypeOf(boolean))
+	log.Printf("%s\n", reflect.TypeOf(channel))
 }

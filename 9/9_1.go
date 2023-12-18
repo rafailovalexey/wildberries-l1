@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 9 (1-ое решение)
@@ -26,6 +26,6 @@ func main() {
 	}()
 
 	for result := range results {
-		fmt.Printf("%d\n", result)
+		log.Printf("%d\n", result)
 	}
 }

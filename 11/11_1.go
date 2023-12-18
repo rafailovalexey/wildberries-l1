@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 11 (1-ое решение)
@@ -14,7 +14,7 @@ func main() {
 
 	result := intersection(map1, map2)
 
-	fmt.Printf("intersection of many %v\n", result)
+	log.Printf("intersection of many %v\n", result)
 }
 
 func intersection(map1 map[any]any, map2 map[any]any) map[any]any {

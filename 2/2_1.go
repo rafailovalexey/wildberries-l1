@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
 	"sync"
 )
@@ -25,7 +25,7 @@ func main() {
 
 			square := int(math.Pow(float64(number), 2))
 
-			fmt.Printf("square of the number %d: %d\n", number, square)
+			log.Printf("square of the number %d: %d\n", number, square)
 		}(number)
 	}
 

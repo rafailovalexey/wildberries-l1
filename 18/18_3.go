@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sync"
 )
 
@@ -34,5 +34,5 @@ func main() {
 
 	wg.Wait()
 
-	fmt.Printf("%d\n", counter)
+	log.Printf("%d\n", counter)
 }

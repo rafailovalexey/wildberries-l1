@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 23 (2 решение)
@@ -13,7 +13,7 @@ func main() {
 
 	array = DeleteArrayByIndex(array, 5)
 
-	fmt.Printf("%v %d %d\n", array, len(array), cap(array))
+	log.Printf("%v %d %d\n", array, len(array), cap(array))
 }
 
 func DeleteArrayByIndex(array []int, index int) []int {

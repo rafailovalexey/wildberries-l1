@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
 )
 
@@ -39,5 +39,5 @@ func main() {
 
 	distance := point1.DistanceTo(point2)
 
-	fmt.Printf("distance between points: %.2f\n", distance)
+	log.Printf("distance between points: %.2f\n", distance)
 }

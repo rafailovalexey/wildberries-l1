@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"time"
 )
 
@@ -20,19 +20,19 @@ func main() {
 	close(channel)
 	time.Sleep(3 * time.Second)
 
-	fmt.Printf("program has been stopped\n")
+	log.Printf("program has been stopped\n")
 }
 
 func worker(channel <-chan struct{}) {
-	fmt.Printf("worker: start\n")
+	log.Printf("worker: start\n")
 
 	for {
 		select {
 		case <-channel:
-			fmt.Printf("worker: stopped\n")
+			log.Printf("worker: stopped\n")
 			return
 		default:
-			fmt.Printf("worker: running\n")
+			log.Printf("worker: running\n")
 			time.Sleep(1 * time.Second)
 		}
 	}

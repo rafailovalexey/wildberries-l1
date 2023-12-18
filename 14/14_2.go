@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 )
 
 /*
@@ -13,17 +13,17 @@ import (
 func PrintTypeOf(value any) {
 	switch value.(type) {
 	case int:
-		fmt.Printf("int\n")
+		log.Printf("int\n")
 	case string:
-		fmt.Printf("string\n")
+		log.Printf("string\n")
 	case bool:
-		fmt.Printf("bool\n")
+		log.Printf("bool\n")
 	case chan int:
-		fmt.Printf("chan int\n")
+		log.Printf("chan int\n")
 	case chan string:
-		fmt.Printf("chan string\n")
+		log.Printf("chan string\n")
 	default:
-		fmt.Printf("could not determine specific type")
+		log.Printf("could not determine specific type")
 	}
 }
 

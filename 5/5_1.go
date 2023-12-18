@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -23,22 +23,22 @@ func main() {
 	channel := make(chan string)
 
 	go func() {
-		fmt.Printf("subscriber: start\n")
+		log.Printf("subscriber: start\n")
 
 		for {
 			select {
 			case <-ctx.Done():
-				fmt.Printf("subscriber: stopped\n")
+				log.Printf("subscriber: stopped\n")
 
 				return
 			case message, isOpen := <-channel:
 				if !isOpen {
-					fmt.Printf("subscriber: channel closed\n")
+					log.Printf("subscriber: channel closed\n")
 
 					return
 				}
 
-				fmt.Printf("subscriber: %s\n", message)
+				log.Printf("subscriber: %s\n", message)
 			}
 		}
 	}()
@@ -49,11 +49,11 @@ func main() {
 		for counter := 0; ; counter++ {
 			select {
 			case <-ctx.Done():
-				fmt.Printf("publisher: stopped\n")
+				log.Printf("publisher: stopped\n")
 
 				return
 			default:
-				message := fmt.Sprintf("%d", counter)
+				message := log.Sprintf("%d", counter)
 				channel <- message
 				counter++
 			}
@@ -69,7 +69,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			case <-exit:
-				fmt.Printf("CTRL+C received. Stopping subscribers...\n")
+				log.Printf("CTRL+C received. Stopping subscribers...\n")
 
 				cancel()
 			}
@@ -78,5 +78,5 @@ func main() {
 
 	<-ctx.Done()
 
-	fmt.Printf("program has been stopped\n")
+	log.Printf("program has been stopped\n")
 }

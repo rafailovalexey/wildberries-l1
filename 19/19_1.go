@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 19 (1-ое решение)
@@ -13,8 +13,8 @@ func main() {
 
 	reversed := reverse(value)
 
-	fmt.Printf("source string: %s\n", value)
-	fmt.Printf("reversed string: %s\n", reversed)
+	log.Printf("source string: %s\n", value)
+	log.Printf("reversed string: %s\n", reversed)
 }
 
 func reverse(value string) string {

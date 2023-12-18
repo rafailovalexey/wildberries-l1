@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 10 (1-ое решение)
@@ -21,5 +21,5 @@ func main() {
 		dictionary[group] = append(dictionary[group], value)
 	}
 
-	fmt.Printf("%v\n", dictionary)
+	log.Printf("%v\n", dictionary)
 }

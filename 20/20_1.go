@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"strings"
 )
 
@@ -17,7 +17,7 @@ func main() {
 
 	result := reverse(value)
 
-	fmt.Printf("%s\n", result)
+	log.Printf("%s\n", result)
 }
 
 func reverse(value string) string {

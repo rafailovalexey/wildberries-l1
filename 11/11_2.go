@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -17,7 +17,7 @@ func main() {
 
 	result := intersection(array1, array2)
 
-	fmt.Printf("set intersection in sorted arrays %v\n", result)
+	log.Printf("set intersection in sorted arrays %v\n", result)
 }
 
 func intersection(array1 []int, array2 []int) []int {

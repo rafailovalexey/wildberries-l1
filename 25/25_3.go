@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"time"
 )
 
@@ -14,12 +14,12 @@ import (
 func main() {
 	seconds := 5
 
-	fmt.Printf("program started\n")
-	fmt.Printf("waiting %d seconds\n", seconds)
+	log.Printf("program started\n")
+	log.Printf("waiting %d seconds\n", seconds)
 
 	sleep(seconds)
 
-	fmt.Printf("program terminated\n")
+	log.Printf("program terminated\n")
 }
 
 func sleep(seconds int) {

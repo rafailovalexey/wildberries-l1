@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 )
 
 /*
@@ -31,6 +31,6 @@ func main() {
 
 	result := SetBit(number, position, value)
 
-	fmt.Printf("Исходное число: %d\n", number)
-	fmt.Printf("Результат после установки %d-го бита на позиции %d: %d\n", value, position, result)
+	log.Printf("original number %d\n", number)
+	log.Printf("result after setting the %d bit to position %d: %d\n", value, position, result)
 }

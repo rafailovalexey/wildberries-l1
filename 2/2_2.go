@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
 )
 
@@ -21,11 +21,11 @@ func main() {
 		for _, number := range numbers {
 			square := int(math.Pow(float64(number), 2))
 
-			channel <- fmt.Sprintf("square of the number %d: %d\n", number, square)
+			channel <- log.Sprintf("square of the number %d: %d\n", number, square)
 		}
 	}()
 
 	for value := range channel {
-		fmt.Printf("%s\n", value)
+		log.Printf("%s\n", value)
 	}
 }

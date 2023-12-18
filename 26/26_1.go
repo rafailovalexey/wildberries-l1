@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"strconv"
 	"strings"
 )
@@ -22,7 +22,7 @@ func main() {
 
 	result := CheckCharExists(value)
 
-	fmt.Printf("%v\n", result)
+	log.Printf("%v\n", result)
 }
 
 func CheckCharExists(value string) bool {

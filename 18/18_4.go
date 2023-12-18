@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 /*
 	№ 18 (4-ое решение)
@@ -28,5 +28,5 @@ func main() {
 
 	result := <-channel
 
-	fmt.Printf("%d\n", result)
+	log.Printf("%d\n", result)
 }

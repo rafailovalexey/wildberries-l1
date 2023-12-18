@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"strings"
 )
 
@@ -42,5 +42,5 @@ func createHugeString(size int) string {
 func main() {
 	someFunc()
 
-	fmt.Printf("%s\n", justString)
+	log.Printf("%s\n", justString)
 }
