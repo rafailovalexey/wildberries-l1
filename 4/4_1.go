@@ -69,7 +69,7 @@ func main() {
 	signal.Notify(exit, syscall.SIGINT)
 	<-exit
 
-	log.Printf("CTRL+C received. Stopping subscribers...\n")
+	log.Printf("ctrl+c received. Stopping subscribers...\n")
 
 	cancel()
 	wg.Wait()

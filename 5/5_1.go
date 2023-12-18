@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -53,7 +54,7 @@ func main() {
 
 				return
 			default:
-				message := log.Sprintf("%d", counter)
+				message := fmt.Sprintf("%d", counter)
 				channel <- message
 				counter++
 			}
@@ -69,7 +70,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			case <-exit:
-				log.Printf("CTRL+C received. Stopping subscribers...\n")
+				log.Printf("ctrl+c received. Stopping subscribers...\n")
 
 				cancel()
 			}

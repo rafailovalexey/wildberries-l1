@@ -30,7 +30,7 @@ func main() {
 			case <-ctx.Done():
 				return
 			case <-exit:
-				log.Printf("CTRL+C received. Stopping subscribers...\n")
+				log.Printf("ctrl+c received. Stopping subscribers...\n")
 
 				cancel()
 			}
